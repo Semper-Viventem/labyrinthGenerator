@@ -5,7 +5,7 @@
 
 
 fun main(args: Array<String>) {
-    val root = SmartBlock(0,0, 0, 10, 10)
+    val root = SmartBlock(0,0, 0, 10, 20)
     root.isRight = true
     root.generate()
     root.draw()
