@@ -87,7 +87,6 @@ class SmartBlock(
     }
 
     fun draw() {
-        println(matrix?.toString() ?: "MATRIX IS NULL")
         if (rootBlock == null) {
             val stringModel = Array(maxHeight * 3, { Array(maxWeight * 3, { "+" }) })
             matrix!!.forEachIndexed { blockYIndex, row ->
