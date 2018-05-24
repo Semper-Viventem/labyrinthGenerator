@@ -1,5 +1,7 @@
 # Labirint generator
 
+**I was drunk and made a labyrinth generator using a matrix tree**
+
 ### 10x20
 ```
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
