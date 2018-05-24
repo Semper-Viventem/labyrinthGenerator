@@ -20,11 +20,6 @@ abstract class AbstractSmartBlock(
         const val DEFAULT_GENERATE_FACTOR: Double = 1.0
     }
 
-    var isLeft: Boolean = false
-    var isRight: Boolean = false
-    var isTop: Boolean = false
-    var isBottom: Boolean = false
-
     protected var left: AbstractSmartBlock? = null
     protected var right: AbstractSmartBlock? = null
     protected var top: AbstractSmartBlock? = null
@@ -38,7 +33,7 @@ abstract class AbstractSmartBlock(
 
     private val derectionsGenerators = listOf(
             { factor: Double ->
-                if (x > 0 && Math.random() < factor && itemExist(x - 1, y).not()) {
+                if (x > 0 && Math.random() < factor && itemExist(x - 1, y).not() && left == null) {
                     createLeft()
                     true
                 } else {
@@ -46,7 +41,7 @@ abstract class AbstractSmartBlock(
                 }
             },
             { factor: Double ->
-                if (x < maxWeight - 1 && Math.random() < factor && itemExist(x + 1, y).not()) {
+                if (x < maxWeight - 1 && Math.random() < factor && itemExist(x + 1, y).not() && right == null) {
                     createRight()
                     true
                 } else {
@@ -54,7 +49,7 @@ abstract class AbstractSmartBlock(
                 }
             },
             { factor: Double ->
-                if (y < maxHeight - 1 && Math.random() < factor && itemExist(x, y + 1).not()) {
+                if (y < maxHeight - 1 && Math.random() < factor && itemExist(x, y + 1).not() && bottom == null) {
                     createBottom()
                     true
                 } else {
@@ -62,7 +57,7 @@ abstract class AbstractSmartBlock(
                 }
             },
             { factor: Double ->
-                if (y > 0 && Math.random() < factor && itemExist(x, y - 1).not()) {
+                if (y > 0 && Math.random() < factor && itemExist(x, y - 1).not() && top == null) {
                     createTop()
                     true
                 } else {
@@ -94,25 +89,25 @@ abstract class AbstractSmartBlock(
 
     private fun createLeft() {
         left = getChildBlock(x - 1, y)
-        left!!.isLeft = true
+        left!!.right = this
         left!!.generate()
     }
 
     private fun createRight() {
         right = getChildBlock(x + 1, y)
-        right!!.isRight = true
+        right!!.left = this
         right!!.generate()
     }
 
     private fun createTop() {
         top = getChildBlock(x, y - 1)
-        top!!.isTop = true
+        top!!.bottom = this
         top!!.generate()
     }
 
     private fun createBottom() {
         bottom = getChildBlock(x, y + 1)
-        bottom!!.isBottom = true
+        bottom!!.top = this
         bottom!!.generate()
     }
 }

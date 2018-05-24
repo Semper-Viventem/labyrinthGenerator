@@ -45,9 +45,9 @@ class ConsoleSmartBlock(
     }
 
     private fun getStringModel() = arrayOf(
-            arrayOf(BLOCK, if (top != null || isBottom) SPACE else BLOCK, BLOCK),
-            arrayOf(if (left != null || isRight) SPACE else BLOCK, if (rootBlock == null) START else SPACE, if (right != null || isLeft) SPACE else BLOCK),
-            arrayOf(BLOCK, if (bottom != null || isTop) SPACE else BLOCK, BLOCK)
+            arrayOf(BLOCK, if (top != null) SPACE else BLOCK, BLOCK),
+            arrayOf(if (left != null) SPACE else BLOCK, if (rootBlock == null) START else SPACE, if (right != null) SPACE else BLOCK),
+            arrayOf(BLOCK, if (bottom != null) SPACE else BLOCK, BLOCK)
     )
 
     private fun fullStringModel() = arrayOf(

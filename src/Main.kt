@@ -5,8 +5,7 @@
 
 
 fun main(args: Array<String>) {
-    val root = ConsoleSmartBlock(0,0, 0, 10, 10)
-    root.isRight = true
+    val root = ConsoleSmartBlock(0,0, 0, 10, 20)
     root.generate()
     root.draw()
 }
