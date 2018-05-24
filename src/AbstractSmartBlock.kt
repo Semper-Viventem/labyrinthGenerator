@@ -36,7 +36,7 @@ abstract class AbstractSmartBlock(
         null
     }
 
-    protected val derectionsGenerators = listOf(
+    private val derectionsGenerators = listOf(
             { factor: Double ->
                 if (x > 0 && Math.random() < factor && itemExist(x - 1, y).not()) {
                     createLeft()

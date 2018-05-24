@@ -20,7 +20,7 @@ class ConsoleSmartBlock(
 
     override fun draw() {
         if (rootBlock == null) {
-            val stringModel = Array(maxHeight * 3, { Array(maxWeight * 3, { "+" }) })
+            val stringModel = Array(maxHeight * 3, { Array(maxWeight * 3, { BLOCK }) })
             matrix!!.forEachIndexed { blockYIndex, row ->
                 row.forEachIndexed { blockXIndex, smartBlock ->
 
